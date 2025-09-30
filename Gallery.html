@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KiKi Gallery</title>
+
+  <style>
+    :root{
+      --bg:#0f1c32; /* dark mode background */
+      --card:#0b1220;
+      --accent:#9ca3af;
+      --gap:1rem;
+      --max-width:1200px;
+      color: #e6eef6;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);}
+    .container{max-width:var(--max-width);margin:24px auto;padding:16px;}
+
+    /* Header / search */
+    .header{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+    .logo{font-weight:700;font-size:20px;letter-spacing:0.4px}
+    .search-wrap{flex:1;display:flex}
+    .search{width:100%;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:var(--accent);outline:none}
+    .search::placeholder{color:#445066}
+    .controls{display:flex;gap:8px}
+    .btn{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--accent);cursor:pointer}
+
+   
+    #gallery{
+      column-count:4;
+      column-gap:var(--gap);
+      width:100%;
+    }
+    @media (max-width:1100px){#gallery{column-count:3}}
+    @media (max-width:760px){#gallery{column-count:2}}
+    @media (max-width:420px){#gallery{column-count:1}}
+
+    .card{display:inline-block;width:100%;margin:0 0 var(--gap);background:var(--card);border-radius:10px;overflow:hidden;vertical-align:top;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .card img{width:100%;height:auto;display:block}
+    .meta{padding:10px 12px}
+    .title{font-size:14px;color:#dbeafe;margin:0 0 6px}
+    .tags{font-size:12px;color:var(--accent)}
+    .hidden{display:none !important}
+
+    .footer{margin-top:20px;color:var(--accent);font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">GALLERY</div>
+      <div class="search-wrap">
+        <input id="search" class="search" type="search" placeholder="Search images by tag or name... e.g. 'mountain, city, portrait'" />
+      </div>
+      <div class="controls">
+        <button id="clearBtn" class="btn">Clear</button>
+        <button id="showAll" class="btn">Show All</button>
+      </div>
+    </div>
+
+
+    <div id="gallery" aria-live="polite">
+      <!-- Example images: replace src with your files, update alt and data-tags -->
+      <article class="card" data-tags="mountain nature landscape">
+        <img src="mountainrise.jpg" alt="Mountain Sunrise"/>
+        <div class="meta">
+          <p class="title">Mountain Sunrise</p>
+          <p class="tags">#mountain #nature</p>
+        </div>
+      </article>
+
+      <article class="card" data-tags="city night architecture">
+        <img src="citynight.jpg" alt="City Night"/>
+        <div class="meta">
+          <p class="title">City Night</p>
+          <p class="tags">#city #night</p>
+        </div>
+      </article>
+
+      <article class="card" data-tags="portrait character manhwa">
+        <img src="manhwa.jpg" alt="Manhwa Portrait"/>
+        <div class="meta">
+          <p class="title">Manhwa Portrait</p>
+          <p class="tags">#portrait #manhwa</p>
+        </div>
+      </article>
+
+      <article class="card" data-tags="nature river landscape">
+        <img src="nature river landscape.jpg" alt="River"/>
+        <div class="meta">
+          <p class="title">River</p>
+          <p class="tags">#river #nature</p>
+        </div>
+      </article>
+      <article class="card" data-tags="forest trees nature">
+        <img src="forest.jpg" alt="Forest"/>
+        <div class="meta">
+          <p class="title">Forest</p>
+          <p class="tags">#forest #trees</p>
+        </div>
+      </article>
+      <article class="card" data-tags="beach ocean sea">
+        <img src="beach.jpg" alt="Beach"/>
+        <div class="meta">
+          <p class="title">Beach</p>
+          <p class="tags">#beach #ocean</p>
+        </div>
+      </article>  
+      <article class="card" data-tags="desert sand dunes">
+        <img src="desert.jpg" alt="Desert"/>
+        <div class="meta">
+          <p class="title">Desert</p>
+          <p class="tags">#desert #sand</p>
+        </div>
+      </article>
+      <article class="card" data-tags="snow winter mountain">
+        <img src="snow.jpg" alt="Snowy Mountain"/>
+        <div class="meta">
+          <p class="title">Snowy Mountain</p>
+          <p class="tags">#snow #winter</p>
+        </div>
+      </article>
+            <article class="card" data-tags="smokingcat">
+        <img src="smokingcat.jpg" alt="smokingcat"/>
+        <div class="meta">
+          <p class="title">Smoking Cat</p>
+          <p class="tags">#cat #smoking </p>
+        </div>
+      </article>
+       <article class="card" data-tags="Sunset">
+        <img src="citysunset.jpg" alt="Sunset"/>
+        <div class="meta">
+          <p class="title">City Sunset</p>
+          <p class="tags">#sunset #city #cat</p>
+        </div>
+      </article>
+       <article class="card" data-tags="animeboy1">
+        <img src="animeboy2.jpg" alt="animeboy1"/>
+        <div class="meta">
+          <p class="title">Anime Boy</p>
+          <p class="tags">#anime #boystyle #profile</p>
+        </div>
+      </article>
+       <article class="card" data-tags="animeboy2">
+        <img src="animeboy.jpg" alt="animeboy2"/>
+        <div class="meta">
+          <p class="title">Anime Boy</p>
+          <p class="tags">#cute #anime #boystyle</p>
+        </div>
+      </article>
+       <article class="card" data-tags="flowerboy">
+        <img src="Boywithflower 1.jpg" alt="flowerboy"/>
+        <div class="meta">
+          <p class="title">Boy with Flower</p>
+          <p class="tags">#cute #boy #profile</p>
+        </div>
+      </article>
+       <article class="card" data-tags="girl">
+        <img src="girlstyle.jpg" alt="girl"/>
+        <div class="meta">
+          <p class="title">Honey Nway Oo</p>
+          <p class="tags">#honey #girl #profile</p>
+        </div>
+      </article>
+       <article class="card" data-tags="boyuke">
+        <img src="boywithuke.jpg" alt="boyuke"/>
+        <div class="meta">
+          <p class="title">BoyWithUke</p>
+          <p class="tags">#uke #music #bedroom #profile</p>
+        </div>
+      </article>
+       <article class="card" data-tags="softboy">
+        <img src="boyprofile.jpg" alt="softboy"/>
+        <div class="meta">
+          <p class="title">Boy life</p>
+          <p class="tags">#lifestyle #profile #cute #boy</p>
+        </div>
+      </article> <article class="card" data-tags="car">
+        <img src="car.jpg" alt="car"/>
+        <div class="meta">
+          <p class="title">Sport Car</p>
+          <p class="tags">#car #sportcar</p>
+        </div>
+      </article>
+       <article class="card" data-tags="paint">
+        <img src="d61b93430d96dc33c8d988aae09d4e13.jpg" alt="paint"/>
+        <div class="meta">
+          <p class="title">A paint</p>
+          <p class="tags">#paint #mountain</p>
+        </div>
+      </article>
+      
+      
+      
+      
+
+    </div>
+
+    <div class="footer">Tip: Add images by copying an existing &lt;article class="card"&gt; block and changing the <code>src</code>, <code>alt</code>, and <code>data-tags</code>.</div>
+  </div>
+
+  <script>
+    // Lightweight search that filters cards by alt text and data-tags
+    const searchInput = document.getElementById('search');
+    const gallery = document.getElementById('gallery');
+    const clearBtn = document.getElementById('clearBtn');
+    const showAllBtn = document.getElementById('showAll');
+
+    function normalize(text){
+      return String(text || '').toLowerCase().trim();
+    }
+
+    function filterGallery(q){
+      const query = normalize(q);
+      const cards = gallery.querySelectorAll('.card');
+      if(!query){
+        cards.forEach(c=>c.classList.remove('hidden'));
+        return;
+      }
+      cards.forEach(card=>{
+        const alt = normalize(card.querySelector('img')?.alt || '');
+        const tags = normalize(card.getAttribute('data-tags') || '');
+        if(alt.includes(query) || tags.includes(query)){
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      })
+    }
+
+    // Debounce for typing
+    let timer = null;
+    searchInput.addEventListener('input', e=>{
+      clearTimeout(timer);
+      timer = setTimeout(()=>filterGallery(e.target.value), 180);
+    });
+
+    clearBtn.addEventListener('click', ()=>{searchInput.value=''; filterGallery(''); searchInput.focus();});
+    showAllBtn.addEventListener('click', ()=>{searchInput.value=''; filterGallery(''); });
+
+    // Allow searching with space-separated keywords (AND behavior)
+    // Enhanced: match any keyword (OR) — split and check all
+    function advancedFilter(q){
+      const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+      const cards = gallery.querySelectorAll('.card');
+      if(words.length===0){cards.forEach(c=>c.classList.remove('hidden'));return}
+      cards.forEach(card=>{
+        const text = (card.getAttribute('data-tags') + ' ' + (card.querySelector('img')?.alt || '')).toLowerCase();
+        const matches = words.some(w=>text.includes(w));
+        card.classList.toggle('hidden', !matches);
+      })
+    }
+
+    // Replace previous listener with advancedFilter
+    searchInput.removeEventListener('input', ()=>{});
+    searchInput.addEventListener('input', e=>{clearTimeout(timer); timer=setTimeout(()=>advancedFilter(e.target.value), 160)});
+
+    // Keyboard shortcut: / to focus search
+    window.addEventListener('keydown', e=>{if(e.key==='/' && document.activeElement!==searchInput){e.preventDefault();searchInput.focus();}});
+  </script>
+</body>
+</html>
