@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Xso Web Development</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
+  <style>
+    :root {
+      --accent: #00b894;
+      --bg: #0b0c10;
+      --card: #0f1115;
+      --muted: #9aa0a6;
+    }
+
+    * {margin:0;padding:0;box-sizing:border-box}
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: #e6eef3;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+
+        header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+  max-width: 1100px;
+  margin: 20px auto 0; 
+  border-radius: 30px;
+  background: rgba(23, 47, 46, 0.299);
+  backdrop-filter: blur(5px) brightness(1.5);
+  border: 1px solid rgba(69, 19, 19, 0.08);
+  box-shadow: 0 4px 2px rgb(0, 0, 0);
+  position: sticky; 
+  top: 20px; 
+  z-index: 10;
+}
+
+    header img {
+      height: 40px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #e6eef3;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 0%; height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    nav a:hover::after {width:100%}
+    nav a:hover {color: var(--accent)}
+    .hero {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:160px 20px 120px;
+      background: linear-gradient(rgba(11,12,16,0.8),rgba(11,12,16,0.8)), url('your-background.jpg') center/cover;
+      backdrop-filter: blur(6px);
+    }
+
+.hero h1 {
+  font-size: 48px;
+  animation: fadeUp 3s ease forwards;
+}
+.hero p {
+  margin-top: 16px;
+  max-width: 600px;
+  color: var(--muted);
+  animation: fadeUp 1.5s ease forwards;
+}
+
+
+    @keyframes fadeUp {
+      from {opacity:0; transform: translateY(40px)}
+      to {opacity:1; transform: translateY(0)}
+    }
+
+   
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      position: relative;
+      display:inline-block;
+      background: linear-gradient(90deg, var(--accent), #00fff7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section h2::after {
+      content:'';
+      position:absolute;
+      left:0;bottom:-8px;
+      width:50%;height:3px;
+      background:var(--accent);
+    }
+
+  
+    .cards {
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap:24px;
+      margin-top:40px;
+    }
+    .card {
+      background: linear-gradient(145deg, #0f1115, #0a1431b7);
+      border:1px solid rgba(134, 168, 71, 0.523);
+      padding:24px;
+      border-radius:16px;
+      
+      transition: transform 0.3s, box-shadow 0.3s, border 0.1s;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+      border:2px solid var(--accent);
+    }
+    .card h3 {margin-bottom:12px; color:var(--accent)}
+
+  
+    .card.premium {
+      border:2px solid var(--accent);
+      background: linear-gradient(145deg, #101216, #0c162b);
+      box-shadow: 0 0 25px rgba(126, 23, 163, 0.37);
+      position: relative;
+    }
+    .card.premium::before {
+      content: "★ Most Popular";
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #161c36;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    
+    footer {
+      text-align:center;
+      padding:40px 20px;
+      border-top:1px solid rgba(255,255,255,0.05);
+      color:var(--muted);
+    }
+
+
+    .fade-section {
+      opacity:0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+    .fade-section.visible {
+      opacity:1;
+      transform: translateY(0);
+    }
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo">
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Build Your Web Presence</h1>
+    <p>Our group delivers modern, fast, and reliable websites with next-level design and performance. Let’s take your ideas online.</p>
+  </section>
+
+  <section id="services" class="section fade-section">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Custom Websites</h3>
+        <p>Responsive, modern websites crafted to fit your business and personal needs.</p>
+      </div>
+      <div class="card">
+        <h3>Redesign & Upgrade</h3>
+        <p>We can take your outdated site and transform it into a sleek, next-gen platform.</p>
+      </div>
+      <div class="card">
+        <h3>Support</h3>
+        <p>We provide continuous support to ensure your site stays online and optimized.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section fade-section">
+    <h2>Pricing</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Starter</h3>
+        <p>200000 MMK / one-time</p>
+        <p>Clean design, mobile-friendly</p>
+        <p>Optional Monthly Service: 30,000 MMK (updates & support)</p>
+      </div>
+      <div class="card">
+        <h3>Standard</h3>
+        <p>500000 MMK / one-time</p>
+        <p>Animations & interactive elements</p>
+        <p>Dynamic website (up to 6 pages)</p>
+        <p>Optional Monthly Service: 50,000 MMK (maintenance & updates)</p>
+      </div>
+      <div class="card premium">
+        <h3>Premium</h3>
+        <p>1000000 MMK / one-time</p>
+        <p>Full package: advanced features, custom design, priority support.</p>
+        <p>Long-term scalability (ready for business growth)</p>
+        <p>Optional Monthly Service: 100,000 MMK (priority support, continuous updates, security monitoring)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section fade-section">
+    <h2>Contact Us</h2>
+    <p>Reach out and let’s start your project today.</p>
+    <p>Email: kikipololipopi@gmail.com</p>
+    <p>Phone: 09950225267</p>
+    <p>Telegram: @Xhooooo</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Our Web Service Group. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('.fade-section');
+    const reveal = () => {
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 60){
+          sec.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
+</body>
+</html>
